@@ -1,0 +1,13 @@
+.list-complete-item {
+  transition: all 0.5s;
+  position: relative;
+}
+.list-complete-enter,
+.list-complete-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
+.list-complete-leave-active {
+  position: absolute;
+  width: 100%;
+}
