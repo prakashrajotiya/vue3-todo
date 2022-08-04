@@ -15,7 +15,14 @@
           Indian Todo
         </q-toolbar-title>
 
-        <!-- <div>Quasar v{{ $q.version }}</div> -->
+        <div>
+          <q-btn
+            dense
+            size="18px"
+            @click="$q.dark.toggle()"
+            :icon="$q.dark.isActive ? 'light_mode' : 'dark_mode'"
+          ></q-btn>
+        </div>
       </q-toolbar>
     </q-header>
 
@@ -40,6 +47,7 @@
 <script>
 import { defineComponent, ref } from "vue";
 import EssentialLink from "components/EssentialLink.vue";
+import { useQuasar } from "quasar";
 
 const linksList = [
   {
@@ -95,7 +103,7 @@ export default defineComponent({
 
   setup() {
     const leftDrawerOpen = ref(false);
-
+    const $q = useQuasar();
     return {
       essentialLinks: linksList,
       leftDrawerOpen,
