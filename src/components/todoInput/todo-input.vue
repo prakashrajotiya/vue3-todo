@@ -5,7 +5,7 @@
       type="text"
       placeholder="Enter Todo Name"
       class="full-width"
-      v-model="todoinput"
+      v-model.trim="todoinput"
     >
     </q-input>
     <q-btn
@@ -31,6 +31,10 @@ const $q = useQuasar();
 onMounted(() => {
   if (localStorage.getItem("todos"))
     todoStore.todos = JSON.parse(localStorage.getItem("todos"));
+  // set id in index if already have todo list
+  if (todoStore.todos.length) {
+    id.value = todoStore.todos[0].id;
+  }
 });
 function todoSubmit() {
   if (todoinput.value) {
